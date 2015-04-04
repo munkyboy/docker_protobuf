@@ -1,7 +1,6 @@
-FROM ubuntu:trusty
+FROM alpine:3.1
+RUN apk add --update protobuf
+RUN rm -rf /var/cache/apk/*
 
-RUN apt-get update
-RUN apt-get install -yq protobuf-compiler
-
-ENTRYPOINT ["/usr/bin/protoc"]
+ENTRYPOINT ["protoc"]
 CMD ["-h"]
